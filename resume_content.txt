@@ -1,0 +1,87 @@
+Aman Bhuyan he/him                              +65 8998 8314            amanbhuyan20@gmail.com
+                                                atomic-semicolon         linkedin.com/in/aman-bhuyan
+Open to credit-bearing internships
+
+Highly analytical and results-driven Software Engineer with 5 years of experience delivering robust software
+solutions, automated workflows, and reliable infrastructure configurations. Proven track record in transitioning
+from graduate roles to core engineering ownership, with proficiency in optimising system performance and ensuring
+data integrity. A University of Melbourne alumnus majoring in Computing and Software Systems, currently
+advancing technical expertise through postgraduate studies in Applied Artificial Intelligence at NTU, Singapore.
+
+Skills
+
+Software Languages: Python, C#, JavaScript, Go
+
+Frameworks: .NET (Blazor, Razor Pages, Entity Framework), HTMX, AlpineJS, React
+
+Cloud & DevOps: Azure (App Service, CI/CD), Docker, GitHub Actions, Copilot, JetBrains AI
+
+Databases & Analytics: SQL Server, PostgreSQL, Power BI, DAX, SQLite
+
+Soft Skills / Methodologies: Technical Leadership, Stakeholder Management, Agile/Scrum, Shape Up
+
+Spoken Languages: Fluent in English (native), Assamese (native), Hindi (advanced), Korean (conversational)
+
+Experience
+
+MERCOR                                                                           FEB 2026 ­ MAY 2026
+
+REMOTE, US-BASED | CONTRACT
+
+AI Code Reasoning Auditor
+
+· Performed code logic verification and LLM output reviews for generated feature implementations and bugfixes
+
+in C#, Go, and Python, to ensure production-grade AI training data.
+
+· Maintained high accuracy and throughput for annotation workflows, with an 80% first-pass acceptance rate.
+
+WALTER AND ELIZA HALL INSTITUTE OF MEDICAL RESEARCH                                        FEB 2021 ­ SEP 2025
+
+MELBOURNE, AUSTRALIA | FULL-TIME
+
+Software Engineer                                                                          Jan 2023 ­ Sep 2025
+
+Software Developer                                                                         Feb 2022 ­ Dec 2022
+
+Graduate Software Developer                                                                Feb 2021 ­ Jan 2022
+
+· Led development for an enterprise inventory/manufacturing system using .NET Razor Pages and EF Core,
+   replacing legacy paper processes to cut 12+ manual labour/audit hours weekly.
+
+· Migrated legacy applications to a containerized, self-hosted architecture, reducing Azure cloud overhead by
+   10% during an institute deficit-recovery initiative.
+
+· Accelerated junior engineer onboarding via standardised review guidelines while integrating JetBrains
+   AI/GitHub Copilot into team workflows to boost overall development velocity.
+
+· Shipped major backend/UI upgrades for internal financial grant tracking tools and built executive Power BI/DAX
+   dashboards for complex reporting needs.
+
+Education
+
+Master of Computing (Applied AI), Ongoing
+Nanyang Technological University | 2026 ­ 2027
+
+Bachelor of Science (Computing & Software Systems), First Class Honours
+University of Melbourne | 2018 ­ 2020
+Projects
+
+PROFILARR AUTOMATION, PERSONAL PROJECT (2025)
+Python | GitHub Actions | YAML | RegEx Parsing
+
+ · Consolidated profiles from different open-source projects for use in a media automation stack for quality
+     profile configurations in self-hosted media servers, running nightly synchronisation workflows with upstream
+     repositories.
+
+ · Automated the synchronisation of disparate YAML configurations via Python and GitHub Actions, implementing
+     RegEx-based conflict resolution to maintain a unified media metadata schema.
+
+Volunteering
+
+Event Operations & Support | TEDxNTU, PAX AUS, TGX, Oz Comic-Con (2022 ­ 2026)
+ · Co-ordinated with cross-functional staff and security teams to maintain schedule continuity and venue safety
+     protocols.
+ · Delivered front-facing support and dispute resolution for thousands of attendees across major conventions.
+ · Managed live floor incident response and crowd flow control under fast-paced, high-density conditions.
+

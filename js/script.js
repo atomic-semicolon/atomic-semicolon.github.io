@@ -59,7 +59,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Animate skill bars when they come into view
-const skillBars = document.querySelectorAll('.progress-fill');
+const skillBars = document.querySelectorAll('.progress-bar');
 
 const animateSkillBars = () => {
     skillBars.forEach(bar => {
@@ -67,7 +67,9 @@ const animateSkillBars = () => {
         const screenPosition = window.innerHeight / 1.3;
 
         if (barPosition < screenPosition) {
-            bar.style.width = bar.getAttribute('data-width');
+            // Get the width from data attribute or default to current width
+            const targetWidth = bar.getAttribute('data-width') || bar.style.width;
+            bar.style.width = targetWidth;
         }
     });
 };
@@ -85,7 +87,7 @@ window.addEventListener('scroll', animateSkillBars);
 window.addEventListener('load', animateSkillBars);
 
 // Form submission handling
-const contactForm = document.querySelector('.contact-form form');
+const contactForm = document.querySelector('form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -110,3 +112,17 @@ projectCards.forEach(card => {
 
 // Initialize theme icon
 updateThemeIcon(html.getAttribute('data-theme'));
+
+// Bootstrap specific functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize tooltips and popovers if needed
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+    });
+});
