@@ -1,0 +1,29 @@
+title: Software Engineer Portfolio
+email: john.doe@example.com
+description: A modern, aesthetically pleasing portfolio website for a software engineer
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Projects
+    url: /projects
+  - title: Skills
+    url: /skills
+  - title: Contact
+    url: /contact
+
+# Author settings
+author:
+  name: John Doe
+  email: john.doe@example.com
+  twitter: johndoe
+  github: johndoe
