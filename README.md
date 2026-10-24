@@ -1,58 +1,88 @@
-# Software Engineer Portfolio
+# Aman Bhuyan — Software Engineer & AI Specialist Portfolio
 
-This is a responsive, modern portfolio website for a software engineer. The site showcases projects, skills, and contact information with a clean design and smooth user experience.
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?style=flat-square&logo=github)](https://atomic-semicolon.github.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg?style=flat-square)](LICENSE)
+[![HTML5 / CSS3 / JS](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20CSS3%20%7C%20HTML5-orange?style=flat-square)](https://developer.mozilla.org/)
 
-## Features
+An interactive, dark/light theme, modern single-page portfolio website built for **Aman Bhuyan** — Software Engineer with 5 years of enterprise experience & Master of Computing (Applied AI) candidate at NTU Singapore.
 
-- Responsive design using Bootstrap 5
-- Dark/light theme toggle functionality
-- Smooth scrolling navigation
-- Animated skill bars
-- Project showcase with tags
-- Contact section with resume download
-- Mobile-friendly layout
+Designed for recruiters, engineering hiring managers, and collaborators to explore career achievements, technical skillsets, and personal projects interactively.
 
-## Files
+---
 
-- `index.html` - Main portfolio page structure
-- `css/styles.css` - Custom styling and theme support
-- `js/script.js` - Interactive JavaScript functionality
-- `Aman Bhuyan Resume.pdf` - Downloadable resume
+## ✨ Features & Highlights
 
-## Technologies Used
+- **Interactive CLI Terminal Widget**: A lightweight simulated bash terminal embedded directly in the hero section. Visitors can run commands like `about`, `skills`, `experience`, `contact`, or `clear` via text input or quick-action chips.
+- **Dynamic Particle Canvas Backdrop**: Custom HTML5 Canvas particle network animation reacting to window size and theme changes with a glowing cursor follower.
+- **Searchable & Filterable Skills Matrix**: Instant client-side text search and category tab filtering (`Languages`, `Frameworks`, `Cloud & DevOps`, `Databases`).
+- **Interactive System Architecture Visualizer**: Step-by-step pipeline flow diagram for the *Profilarr Automation* project with interactive nodes and dynamic explanations.
+- **Animated Impact Counters**: Numbers increment dynamically upon scrolling into view using `IntersectionObserver`.
+- **Seamless Theme Switcher**: Modern Dark / Light mode toggle supporting fluid glassmorphism UI effects (`backdrop-filter`).
+- **Zero Build Step / GitHub Pages Ready**: Pure vanilla HTML5, CSS3, and JavaScript — no Node.js dependencies, npm packages, or server-side rendering required.
 
-- HTML5
-- CSS3 (with Bootstrap 5)
-- JavaScript (ES6)
-- Bootstrap 5 Framework
-- Font Awesome Icons
-- Google Fonts
+---
 
-## Setup Instructions
+## 🛠️ Technology Stack
 
-1. Clone the repository
-2. Open `index.html` in a web browser
-3. The site is ready to use - no additional setup required
+| Category | Technologies / Tools Used |
+| :--- | :--- |
+| **Markup & Layout** | HTML5, Semantic Elements, Accessibility (ARIA tags) |
+| **Styling & Design** | CSS Custom Properties (Variables), Glassmorphism, Flexbox, CSS Grid, Responsive Media Queries |
+| **Scripting** | Vanilla JavaScript (ES6+), Canvas API, `IntersectionObserver`, Clipboard API |
+| **Typography** | [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), [Inter](https://fonts.google.com/specimen/Inter), [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) via Google Fonts |
 
-## Customization
+---
 
-To customize this portfolio:
-1. Edit `index.html` for content changes
-2. Modify `css/styles.css` for styling adjustments
-3. Update `js/script.js` for interactive features
-4. Replace `Aman Bhuyan Resume.pdf` with your own resume
+## 📁 Repository Structure
 
-## Theme Toggle
+```text
+.
+├── index.html              # Main HTML document containing all layout, CSS styles, and JS logic
+├── Aman Bhuyan Resume.pdf   # Downloadable PDF resume referenced in CTAs
+└── README.md               # Project documentation
+```
 
-The portfolio includes a theme toggle in the navigation bar that allows users to switch between light and dark modes. The selected theme is saved in local storage.
+---
 
-## Responsive Design
+## 🚀 Quick Start & Local Development
 
-The portfolio is fully responsive and works on:
-- Desktop computers
-- Tablets
-- Mobile phones
+No package installation or compilation required!
 
-## License
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/atomic-semicolon/atomic-semicolon.github.io.git
+   cd atomic-semicolon.github.io
+   ```
 
-This project is available as open source under the terms of the MIT License.
+2. **Open in browser**:
+   Simply double-click `index.html` or open it using any web browser:
+   ```bash
+   # On macOS
+   open index.html
+
+   # On Linux
+   xdg-open index.html
+
+   # Or serve via Python HTTP server
+   python3 -m http.server 8000
+   ```
+
+3. Navigate to `http://localhost:8000` in your web browser.
+
+---
+
+## 🌐 Deploying to GitHub Pages
+
+To host this portfolio on GitHub Pages under your custom username or domain:
+
+1. Push this repository to GitHub named `<your-username>.github.io`.
+2. Go to **Settings** > **Pages** in your GitHub repository.
+3. Under **Build and deployment**, set **Source** to `Deploy from a branch`.
+4. Select branch `main` (or `master`) and folder `/ (root)`, then click **Save**.
+5. Your site will be live at `https://<your-username>.github.io` within a few minutes.
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE). Feel free to fork and customize it for your own personal portfolio!
