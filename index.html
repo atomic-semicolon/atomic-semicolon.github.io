@@ -1,130 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Engineer Portfolio</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Aman Bhuyan | Software Engineer & AI Specialist</title>
+    <meta name="description" content="Aman Bhuyan - Software Engineer with 5 years of enterprise experience & NTU Applied AI Postgraduate. Building robust systems, automated workflows, and reliable infrastructure.">
+    <meta name="author" content="Aman Bhuyan">
+    <meta property="og:title" content="Aman Bhuyan — Software Engineer & AI Specialist">
+    <meta property="og:description" content="5 years of enterprise experience in full-stack engineering, automation, and cloud optimization. M.Comp Applied AI at NTU Singapore.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-        
-    </style>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="header bg-white shadow-sm fixed-top">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center py-3">
-                <div class="logo">
-                    <h2 class="mb-0 text-primary">Aman Bhuyan</h2>
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </div>
+    <!-- Background Canvas and Grid -->
+    <canvas id="bgCanvas"></canvas>
+    <div class="bg-grid-overlay"></div>
+    <div class="scroll-progress-bar" id="scrollBar"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar__container">
+            <a href="#hero" class="navbar__logo">
+                <span class="navbar__logo-bracket">&lt;</span>aman.bhuyan<span class="navbar__logo-bracket"> /&gt;</span>
+            </a>
+
+            <ul class="navbar__links">
+                <li><a href="#about" class="navbar__link">About</a></li>
+                <li><a href="#experience" class="navbar__link">Experience</a></li>
+                <li><a href="#work" class="navbar__link">Work</a></li>
+                <li><a href="#skills" class="navbar__link">Skills</a></li>
+                <li><a href="#education" class="navbar__link">Education</a></li>
+                <li><a href="#contact" class="navbar__link">Contact</a></li>
+            </ul>
+
+            <div class="navbar__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <a href="Aman Bhuyan Resume.pdf" download class="btn btn--glass btn--sm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Resume
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-4">Hi, I'm <span class="text-primary">Aman Bhuyan</span></h1>
-                    <h2 class="h3 mb-4">Software Engineer & Full Stack Developer</h2>
-                    <p class="lead mb-5">I build exceptional digital experiences that are fast, accessible, and visually appealing.</p>
-                    <div class="d-flex justify-content-center gap-3 flex-wrap">
-                        <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
-                        <a href="#contact" class="btn btn-outline-primary btn-lg">Contact Me</a>
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-menu__link">About</a>
+        <a href="#experience" class="mobile-menu__link">Experience</a>
+        <a href="#work" class="mobile-menu__link">Work</a>
+        <a href="#skills" class="mobile-menu__link">Skills</a>
+        <a href="#education" class="mobile-menu__link">Education</a>
+        <a href="#contact" class="mobile-menu__link">Contact</a>
+        <a href="Aman Bhuyan Resume.pdf" download class="btn btn--primary" style="margin-top: auto;">Download Resume PDF</a>
+    </div>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero__grid">
+                <!-- Left Column: Copy & CTAs -->
+                <div>
+                    <div class="hero__badges">
+                        <span class="badge badge--emerald">
+                            <span class="pulse-dot"></span> Open to Credit-Bearing Internships
+                        </span>
+                        <span class="badge">📍 Singapore</span>
+                        <span class="badge">🎓 NTU Applied AI</span>
+                    </div>
+
+                    <h1 class="hero__title">
+                        Hi, I'm <span class="text-gradient">Aman Bhuyan</span>
+                    </h1>
+
+                    <div class="hero__subtitle">
+                        <span>I build</span>
+                        <span class="typewriter-text" id="typewriter"></span>
+                    </div>
+
+                    <p class="hero__bio">
+                        Software Engineer with <strong>5 years of enterprise experience</strong> crafting scalable, high-integrity software and robust automated workflows. Currently pursuing my <strong>Master of Computing in Applied AI at NTU Singapore</strong>.
+                    </p>
+
+                    <div class="hero__cta">
+                        <a href="#experience" class="btn btn--primary">
+                            Explore Experience
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="#contact" class="btn btn--glass">Get In Touch</a>
+                    </div>
+
+                    <div class="hero__socials">
+                        <a href="https://github.com/atomic-semicolon" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/aman-bhuyan" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="mailto:amanbhuyan20@gmail.com" class="social-link" aria-label="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                        <a href="tel:+6589988314" class="social-link" aria-label="Phone">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive CLI Terminal Widget -->
+                <div class="terminal">
+                    <div class="terminal__header">
+                        <div class="terminal__dots">
+                            <span class="terminal__dot terminal__dot--red"></span>
+                            <span class="terminal__dot terminal__dot--yellow"></span>
+                            <span class="terminal__dot terminal__dot--green"></span>
+                        </div>
+                        <span class="terminal__title">aman@singapore ~ bash</span>
+                        <span>v2.6</span>
+                    </div>
+
+                    <div class="terminal__body" id="terminalOutput">
+                        <div class="terminal__line">
+                            <span class="terminal__prompt">aman@dev:~$</span>
+                            <span class="terminal__command">welcome --interactive</span>
+                        </div>
+                        <div class="terminal__output">
+Welcome to Aman's Portfolio Terminal.
+Type 'help' to see available commands, or click quick options below.
+                        </div>
+                    </div>
+
+                    <div class="terminal__quick-cmds">
+                        <span class="cmd-chip" onclick="executeCmd('about')">$ about</span>
+                        <span class="cmd-chip" onclick="executeCmd('skills')">$ skills</span>
+                        <span class="cmd-chip" onclick="executeCmd('experience')">$ experience</span>
+                        <span class="cmd-chip" onclick="executeCmd('contact')">$ contact</span>
+                        <span class="cmd-chip" onclick="executeCmd('clear')">$ clear</span>
+                    </div>
+
+                    <div style="padding: 0.75rem 1rem; border-top: 1px solid var(--border-color);">
+                        <form id="terminalForm" class="terminal__input-line" onsubmit="handleTerminalSubmit(event)">
+                            <span class="terminal__prompt">aman@dev:~$</span>
+                            <input type="text" id="terminalInput" class="terminal__input" placeholder="Type a command (e.g. help)..." autocomplete="off">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about py-5">
-        <div class="container py-5">
-            <h2 class="text-center mb-5 display-6">About Me</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-7 mb-4 mb-lg-0">
-                    <p class="lead">Hello! I'm Aman Bhuyan, a passionate software engineer with 5+ years of experience creating modern web applications. I specialize in full-stack development with a focus on building scalable and user-friendly solutions.</p>
-                    <p>I approach problems with a combination of technical expertise and creative thinking to deliver digital products that not only meet but exceed expectations.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-4 mb-3">
-                            <div class="text-center">
-                                <h3 class="text-primary fw-bold">5+</h3>
-                                <p class="mb-0">Years Experience</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="text-center">
-                                <h3 class="text-primary fw-bold">1+</h3>
-                                <p class="mb-0">Projects Completed</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="text-center">
-                                <h3 class="text-primary fw-bold">20+</h3>
-                                <p class="mb-0">Happy Clients</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="profile-placeholder bg-light rounded d-flex align-items-center justify-content-center" style="height: 400px;">
-                        <i class="fas fa-user fa-5x text-primary"></i>
-                    </div>
-                </div>
+    <!-- ================= IMPACT METRICS ================= -->
+    <section class="container">
+        <div class="metrics-grid">
+            <div class="glass-card metric-card reveal">
+                <div class="metric-card__number"><span class="counter" data-target="5">0</span><span class="metric-card__suffix">+</span></div>
+                <div class="metric-card__label">Years Software Engineering</div>
+            </div>
+            <div class="glass-card metric-card reveal" style="transition-delay: 0.1s;">
+                <div class="metric-card__number"><span class="counter" data-target="80">0</span><span class="metric-card__suffix">%</span></div>
+                <div class="metric-card__label">First-Pass AI Audit Acceptance</div>
+            </div>
+            <div class="glass-card metric-card reveal" style="transition-delay: 0.2s;">
+                <div class="metric-card__number"><span class="counter" data-target="12">0</span><span class="metric-card__suffix">+</span></div>
+                <div class="metric-card__label">Weekly Labor Hours Saved</div>
+            </div>
+            <div class="glass-card metric-card reveal" style="transition-delay: 0.3s;">
+                <div class="metric-card__number"><span class="counter" data-target="10">0</span><span class="metric-card__suffix">%</span></div>
+                <div class="metric-card__label">Azure Overhead Reduced</div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects py-5">
-        <div class="container py-5">
-            <h2 class="text-center mb-5 display-6">My Projects</h2>
-            <div class="row g-4">
-                <div class="col-md-12">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body text-center">
-                            <div class="project-image bg-light rounded mb-3 d-flex align-items-center justify-content-center" style="height: 200px;">
-                                <div class="placeholder">PROFILARR AUTOMATION</div>
-                            </div>
-                            <h3 class="card-title">PROFILARR AUTOMATION</h3>
-                            <p class="card-text">Consolidated profiles from different open-source projects for use in a media automation stack for quality profile configurations in self-hosted media servers, running nightly synchronisation workflows with upstream repositories.</p>
-                            <div class="d-flex flex-wrap gap-2 justify-content-center mb-3">
-                                <span class="badge bg-primary">Python</span>
-                                <span class="badge bg-secondary">GitHub Actions</span>
-                                <span class="badge bg-success">YAML</span>
-                                <span class="badge bg-info">RegEx Parsing</span>
-                            </div>
-                            <div class="d-flex gap-2 justify-content-center">
-                                <a href="#" class="btn btn-sm btn-outline-primary">Live Demo</a>
-                                <a href="#" class="btn btn-sm btn-outline-dark">GitHub</a>
-                            </div>
-                        </div>
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__number">01.</span>
+                <h2 class="section__title">About Me</h2>
+                <div class="section__line"></div>
+            </div>
+
+            <div class="about__grid">
+                <div class="about__text reveal">
+                    <p>
+                        I am a highly analytical, results-driven <strong>Software Engineer with 5 years of experience</strong> delivering robust software solutions, automated pipelines, and cloud infrastructure.
+                    </p>
+                    <p>
+                        Having transitioned from graduate roles to core engineering ownership at top institutes like the <strong>Walter and Eliza Hall Institute (WEHI)</strong>, I specialize in optimizing system performance, streamlining developer workflows, and cutting operational costs.
+                    </p>
+                    <p>
+                        Currently advancing my domain depth via a <strong>Master of Computing in Applied Artificial Intelligence at NTU Singapore</strong>, I bring a unique dual strength in core full-stack software architecture (.NET, Python, Go, Cloud) and cutting-edge LLM code evaluation.
+                    </p>
+                </div>
+
+                <!-- Recruiter Elevator Pitch Card -->
+                <div class="pitch-card reveal" style="transition-delay: 0.2s;">
+                    <div class="pitch-card__title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Why Hire Aman?
                     </div>
                     <ul class="pitch-list">
                         <li class="pitch-item">
@@ -145,127 +237,89 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills py-5">
-        <div class="container py-5">
-            <h2 class="text-center mb-5 display-6">My Skills</h2>
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h3 class="mb-4 text-primary">Frontend</h3>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>HTML/CSS</span>
-                            <span>95%</span>
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__number">02.</span>
+                <h2 class="section__title">Work Experience</h2>
+                <div class="section__line"></div>
+            </div>
+
+            <div class="timeline">
+                <!-- Mercor -->
+                <div class="timeline__item reveal">
+                    <div class="timeline__dot"></div>
+                    <div class="glass-card timeline__card">
+                        <div class="timeline__header">
+                            <div>
+                                <h3 class="timeline__role">AI Code Reasoning Auditor</h3>
+                                <div class="timeline__company">
+                                    MERCOR <span>· US Remote (Contract)</span>
+                                </div>
+                            </div>
+                            <span class="timeline__date">Feb 2026 – May 2026</span>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>JavaScript</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>React</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>Vue.js</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+                        <ul class="timeline__bullets">
+                            <li class="timeline__bullet">Performed rigorous code logic verification and LLM output reviews for generated feature implementations and complex bugfixes in <strong>C#, Go, and Python</strong> to produce production-grade AI training datasets.</li>
+                            <li class="timeline__bullet">Maintained exceptional accuracy and high output velocity across annotation pipelines, securing an <strong>80% first-pass acceptance rate</strong>.</li>
+                        </ul>
+                        <div class="timeline__tech">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">C#</span>
+                            <span class="tech-pill">Go</span>
+                            <span class="tech-pill">LLM Reasoning</span>
+                            <span class="tech-pill">Code Verification</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <h3 class="mb-4 text-primary">Backend</h3>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>Node.js</span>
-                            <span>85%</span>
+                <!-- WEHI -->
+                <div class="timeline__item reveal">
+                    <div class="timeline__dot"></div>
+                    <div class="glass-card timeline__card">
+                        <div class="timeline__header">
+                            <div>
+                                <h3 class="timeline__role">Software Engineer</h3>
+                                <div class="timeline__company">
+                                    Walter and Eliza Hall Institute of Medical Research (WEHI) <span>· Melbourne, AU</span>
+                                </div>
+                            </div>
+                            <span class="timeline__date">Feb 2021 – Sep 2025</span>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>Python</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>Database</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>API Development</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4">
-                    <h3 class="mb-4 text-primary">Tools & Others</h3>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>Git</span>
-                            <span>90%</span>
+                        <!-- Promotion Ladder -->
+                        <div class="career-ladder">
+                            <div class="ladder-step">
+                                <span class="ladder-title">Software Engineer</span>
+                                <span class="ladder-period">Jan 2023 – Sep 2025</span>
+                            </div>
+                            <div class="ladder-step">
+                                <span class="ladder-title">Software Developer</span>
+                                <span class="ladder-period">Feb 2022 – Dec 2022</span>
+                            </div>
+                            <div class="ladder-step">
+                                <span class="ladder-title">Graduate Software Developer</span>
+                                <span class="ladder-period">Feb 2021 – Jan 2022</span>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>Docker</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 70%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>CI/CD</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 65%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span>AWS</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 75%"></div>
+
+                        <ul class="timeline__bullets">
+                            <li class="timeline__bullet">Led end-to-end development for an enterprise inventory and manufacturing platform using <strong>.NET Razor Pages & Entity Framework Core</strong>, eliminating paper workflows to save <strong>12+ manual labor and audit hours weekly</strong>.</li>
+                            <li class="timeline__bullet">Architected migration of legacy monolithic applications to containerized self-hosted infrastructure, slashing <strong>Azure cloud overhead by 10%</strong> during an institute deficit recovery initiative.</li>
+                            <li class="timeline__bullet">Accelerated junior developer onboarding through standardized code review guidelines and integrated <strong>JetBrains AI / GitHub Copilot</strong> into engineering workflows to boost velocity.</li>
+                            <li class="timeline__bullet">Shipped major backend upgrades for internal grant tracking platforms and engineered executive <strong>Power BI / DAX dashboards</strong> for strategic reporting.</li>
+                        </ul>
+
+                        <div class="timeline__tech">
+                            <span class="tech-pill">.NET Core</span>
+                            <span class="tech-pill">C#</span>
+                            <span class="tech-pill">EF Core</span>
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">Azure</span>
+                            <span class="tech-pill">SQL Server</span>
+                            <span class="tech-pill">Power BI / DAX</span>
+                            <span class="tech-pill">CI/CD</span>
                         </div>
                     </div>
                 </div>
@@ -273,66 +327,148 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact py-5">
-        <div class="container py-5">
-            <h2 class="text-center mb-5 display-6">Get In Touch</h2>
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Let's talk about your project</h3>
-                    <p class="lead mb-4">I'm currently available for freelance work and open to new opportunities.</p>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fas fa-envelope text-primary fs-4"></i>
-                                <span>amanbhuyan20@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fas fa-phone text-primary fs-4"></i>
-                                <span>+65 8998 8314</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fas fa-map-marker-alt text-primary fs-4"></i>
-                                <span>Singapore</span>
-                            </div>
-                        </div>
+    <!-- ================= SELECTED WORK ================= -->
+    <section class="section" id="work">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__number">03.</span>
+                <h2 class="section__title">Featured Project</h2>
+                <div class="section__line"></div>
+            </div>
+
+            <div class="project-featured glass-card reveal">
+                <!-- Project Details -->
+                <div class="project__details">
+                    <span class="project__meta">Personal Infrastructure Project · 2025</span>
+                    <h3 class="project__title">Profilarr Automation</h3>
+                    <p class="project__desc">
+                        A nightly media-automation synchronization pipeline that consolidates quality profile configurations from multiple open-source repositories for self-hosted media stacks.
+                    </p>
+                    <p class="project__desc">
+                        Automated sync via <strong>Python & GitHub Actions</strong> with <strong>RegEx-based conflict resolution</strong> to guarantee a unified media metadata schema without breaking upstream changes.
+                    </p>
+                    <div class="timeline__tech" style="border:none; padding:0;">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">GitHub Actions</span>
+                        <span class="tech-pill">YAML</span>
+                        <span class="tech-pill">RegEx Parsing</span>
+                        <span class="tech-pill">CI/CD Pipeline</span>
                     </div>
-                    <div class="mt-4">
-                        <h4 class="mb-3">Download my resume</h4>
-                        <a href="Aman Bhuyan Resume.pdf" class="btn btn-primary" download>
-                            <i class="fas fa-download me-2"></i>Download PDF Resume
+                    <div style="margin-top: 1rem;">
+                        <a href="https://github.com/atomic-semicolon" target="_blank" rel="noopener" class="btn btn--glass btn--sm">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            Repository Link
                         </a>
                     </div>
-                    <div class="mt-4">
-                        <h4 class="mb-3">Follow me</h4>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="fab fa-github"></i></a>
-                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-outline-primary rounded-circle"><i class="fab fa-dev"></i></a>
+                </div>
+
+                <!-- Interactive Architecture Diagram Widget -->
+                <div class="visualizer">
+                    <div class="visualizer__title">
+                        <span>ARCHITECTURE FLOW</span>
+                        <span class="badge badge--emerald" style="font-size:0.7rem;">Interactive</span>
+                    </div>
+                    <div class="visualizer__flow">
+                        <div class="flow-node active" onclick="showNodeInfo(1)">
+                            <div class="node-left">
+                                <span class="node-icon">📦</span>
+                                <span class="node-label">1. Upstream Open-Source Repos</span>
+                            </div>
+                            <span class="tech-pill">YAML</span>
+                        </div>
+                        <div class="flow-arrow">↓ Nightly Cron Trigger</div>
+                        <div class="flow-node" onclick="showNodeInfo(2)">
+                            <div class="node-left">
+                                <span class="node-icon">⚙️</span>
+                                <span class="node-label">2. Python Engine & RegEx Parser</span>
+                            </div>
+                            <span class="tech-pill">Actions</span>
+                        </div>
+                        <div class="flow-arrow">↓ Schema Normalization & Conflict Check</div>
+                        <div class="flow-node" onclick="showNodeInfo(3)">
+                            <div class="node-left">
+                                <span class="node-icon">🚀</span>
+                                <span class="node-label">3. Unified Media Profile Config</span>
+                            </div>
+                            <span class="tech-pill">Deploy</span>
                         </div>
                     </div>
+                    <div class="visualizer__explain" id="nodeExplanation">
+                        Click on any node step above to inspect the pipeline logic and data flow.
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <form class="bg-light p-4 rounded">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SKILLS MATRIX ================= -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__number">04.</span>
+                <h2 class="section__title">Skills & Technologies</h2>
+                <div class="section__line"></div>
+            </div>
+
+            <!-- Category Filter Tabs & Search Bar -->
+            <div class="skills-control reveal">
+                <div class="skills-tabs" id="skillTabs">
+                    <button class="tab-btn active" data-cat="all">All</button>
+                    <button class="tab-btn" data-cat="languages">Languages</button>
+                    <button class="tab-btn" data-cat="frameworks">Frameworks</button>
+                    <button class="tab-btn" data-cat="cloud">Cloud & DevOps</button>
+                    <button class="tab-btn" data-cat="databases">Databases</button>
+                </div>
+
+                <div class="search-box">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="skillSearch" placeholder="Search skills (e.g. Python, Docker)..." oninput="filterSkills()">
+                </div>
+            </div>
+
+            <!-- Dynamic Skill Cards Grid -->
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Skill cards populated via JS for instant filtering -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= EDUCATION & VOLUNTEERING ================= -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__number">05.</span>
+                <h2 class="section__title">Education & Community</h2>
+                <div class="section__line"></div>
+            </div>
+
+            <div class="edu-grid">
+                <div class="glass-card reveal">
+                    <div class="edu-card__degree">Master of Computing (Applied AI)</div>
+                    <div class="edu-card__school">Nanyang Technological University (NTU), Singapore</div>
+                    <div class="edu-card__year">2026 – 2027 (Ongoing)</div>
+                    <p style="font-size:0.925rem;">Advanced studies in Deep Learning, Computer Vision, LLM Architectures, and AI Systems.</p>
+                </div>
+
+                <div class="glass-card reveal" style="transition-delay:0.1s;">
+                    <div class="edu-card__degree">B.Sc. in Computing & Software Systems</div>
+                    <div class="edu-card__school">University of Melbourne, Australia</div>
+                    <div class="edu-card__year">2018 – 2020 · First Class Honours</div>
+                    <p style="font-size:0.925rem;">Specialized in Algorithms, Distributed Infrastructure, Software Engineering, and Database Systems.</p>
+                </div>
+            </div>
+
+            <!-- Volunteering Card -->
+            <div class="volunteering-card reveal">
+                <h3 style="font-size:1.3rem; margin-bottom:0.5rem;">Event Operations & Live Incident Response</h3>
+                <p style="color:var(--text-secondary); font-size:0.95rem;">
+                    Active community operational staff managing crowd flow, schedule continuity, and high-density venue safety protocols across premier conventions:
+                </p>
+                <div class="volunteering-events">
+                    <span class="badge">TEDxNTU</span>
+                    <span class="badge">PAX AUS</span>
+                    <span class="badge">TGX</span>
+                    <span class="badge">Oz Comic-Con</span>
                 </div>
                 <p style="color:var(--text-muted); font-size:0.875rem;">
                     🗣️ Spoken Languages: <strong>English</strong> (Native), <strong>Assamese</strong> (Native), <strong>Hindi</strong> (Advanced), <strong>Korean</strong> (Conversational).
@@ -344,31 +480,30 @@
     <!-- ================= CONTACT ================= -->
     <section class="section" id="contact">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3">
-                    <h2 class="mb-3">Aman Bhuyan</h2>
-                </div>
-                <div class="col-lg-6">
-                    <ul class="nav justify-content-center gap-4">
-                        <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="#" class="btn btn-outline-light rounded-circle"><i class="fab fa-github"></i></a>
-                        <a href="#" class="btn btn-outline-light rounded-circle"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="btn btn-outline-light rounded-circle"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-outline-light rounded-circle"><i class="fab fa-dev"></i></a>
+            <div class="contact-box reveal">
+                <h2 class="contact-box__title">Let's Build Something Exceptional</h2>
+                <p class="contact-box__subtitle">
+                    I am open to credit-bearing internships, software engineering, and AI roles. Whether you have a project in mind or want to talk tech, drop me a message!
+                </p>
+
+                <div class="contact-methods">
+                    <div class="contact-pill" onclick="copyToClipboard('amanbhuyan20@gmail.com', 'Email address copied!')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        amanbhuyan20@gmail.com
+                    </div>
+                    <div class="contact-pill" onclick="copyToClipboard('+6589988314', 'Phone number copied!')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        +65 8998 8314
                     </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <p>&copy; 2023 Aman Bhuyan. All rights reserved.</p>
+
+                <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+                    <a href="mailto:amanbhuyan20@gmail.com" class="btn btn--primary">
+                        Send Email Direct
+                    </a>
+                    <a href="Aman Bhuyan Resume.pdf" download class="btn btn--glass">
+                        Download PDF Resume
+                    </a>
                 </div>
             </div>
         </div>
@@ -387,7 +522,6 @@
     </footer>
 
     <!-- ================= JAVASCRIPT ================= -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
->>>>>>> 84b16f919c71a9e0b65d335c6fa442512cfdc9a3
